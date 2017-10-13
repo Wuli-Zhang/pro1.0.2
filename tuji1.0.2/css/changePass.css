@@ -1,0 +1,52 @@
+[genuitec-file-id="wc1-4"],[genuitec-lp-path="/tuji1.0.2/src/main/webapp/css/changePass.css"],[genuitec-lp-enabled=false]{
+  /* for codelive */
+}
+
+nav {
+  width: 500px;
+  height: 400px;
+  background: #e0eeda;
+  margin: 100px auto;
+  border-radius: 10px;
+}
+nav > h2 {
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+}
+nav > .form-group {
+  height: 40px;
+  width: 90%;
+  padding-left: 40px;
+  margin-top: 30px;
+}
+nav > .form-group > label {
+  float: left;
+  width: 130px;
+}
+nav > .form-group > .col-sm-10 {
+  width: 300px;
+  float: left;
+  margin-left: 100px;
+  margin-bottom: 30px;
+}
+nav > .form-group > .col-sm-10 > input {
+  float: left;
+  margin-top: -25px;
+  margin-left: 10px;
+}
+nav > .passErr {
+  width: 300px;
+  margin: 0 auto;
+  color: red;
+  text-indent: 40px;
+  text-align: center;
+}
+nav > button {
+  width: 50%;
+  margin-left: 130px;
+  margin-top: 30px;
+}
+
+/*# sourceMappingURL=changePass.css.map */

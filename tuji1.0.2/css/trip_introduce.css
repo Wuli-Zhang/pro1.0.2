@@ -1,0 +1,89 @@
+[genuitec-file-id="wc1-28"],[genuitec-lp-path="/tuji1.0.2/src/main/webapp/css/trip_introduce.css"],[genuitec-lp-enabled=false]{
+  /* for codelive */
+}
+
+nav {
+  width: 100%;
+  margin: 0 auto;
+  min-height: 700px;
+  height: auto !important;
+  height: 700px;
+  overflow: hidden;
+  position: relative;
+}
+nav > .total {
+  width: 1120px;
+  height: 310px;
+  margin: 60px auto;
+}
+nav > .total > div:nth-of-type(1) {
+  overflow: hidden;
+  width: 680px;
+  height: 310px;
+  float: left;
+}
+nav > .total > div:nth-of-type(1) > img {
+  float: left;
+}
+nav > .total > .introduce {
+  float: left;
+  width: 400px;
+  height: 310px;
+  margin-left: 30px;
+  padding-right: 40px;
+}
+nav > .total > .introduce > h3 {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+nav > .total > .introduce > p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+nav > .part {
+  width: 1120px;
+  min-height: 450px;
+  height: auto !important;
+  height: 450px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+nav > .part > div {
+  float: left;
+  width: 1120px;
+  padding: 20px;
+  margin: 0 auto;
+  margin-bottom: 80px;
+  background: #addbc4;
+}
+nav > .part > div > div:nth-of-type(1) {
+  float: left;
+  width: 700px;
+  padding: 20px;
+}
+nav > .part > div > div:nth-of-type(1) > p {
+  margin-top: 30px;
+  text-indent: 5px;
+  font-size: 16px;
+}
+nav > .part > div > div:nth-of-type(2) {
+  width: 340px;
+  height: 450px;
+  float: left;
+}
+nav > .part > div > div:nth-of-type(2) > img {
+  width: 340px;
+  height: 410px;
+  margin-left: 20px;
+}
+nav .editor {
+  z-index: 10;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  padding: 5px 10px;
+  background: #eeeeee;
+  border-radius: 5px;
+}
+
+/*# sourceMappingURL=trip_introduce.css.map */

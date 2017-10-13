@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 测试使用xml的方式操作数据，因为动态sql就是针对于xml文件的，对接口代码没有影响，影响的只是xml文件 -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qfedu.dao.StateDao">
+	
+	<resultMap type="rep_State" id="rep_statemap">
+		<id property="rep_id" column="rep_id"/>
+		<result property="rep_date" column="rep_date"/>
+		<result property="rep_content" column="rep_content"/>
+		<result property="rep_show" column="rep_show"/>
+		
+		<association property="rep_user" javaType="user">
+			<id property="id" column="ID"/>
+			<result property="nickname" column="nickname"/>
+			<result property="headportrait" column="headportrait"/>
+			<result property="sex" column="sex"/>
+		</association>
+		
+	</resultMap>
+	
+	
+	<select id="getStateReplay" resultMap="rep_statemap" parameterType="int">
+		SELECT u.ID,u.nickname rep_u_name,u.headportrait rep_u_headportrait,replay.* FROM pintu_state_replay replay ,
+			USER u  WHERE replay.rep_u_id=u.ID AND replay.rep_state_id=#{state_id} ORDER BY rep_date DESC 
+	</select>
+	
+
+
+	<insert id="addRepState" parameterType="map">
+		insert into pintu_state_replay(rep_state_id,rep_u_id,rep_date,rep_content) 
+			values(#{rep_state_id},#{rep_u_id},unix_timestamp(now()),#{rep_content});
+	</insert> 
+	
+</mapper>

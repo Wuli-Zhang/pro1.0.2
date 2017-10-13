@@ -1,0 +1,156 @@
+[genuitec-file-id="wc1-20"],[genuitec-lp-path="/tuji1.0.2/src/main/webapp/css/postMessage.css"],[genuitec-lp-enabled=false]{
+  /* for codelive */
+}
+
+@charset "UTF-8";
+.postMess {
+  background: #f6f6f6;
+  margin: 0 auto;
+  min-height: 600px;
+  height: auto !important;
+  height: 600px;
+  max-width: 1400px;
+  min-width: 1150px;
+  padding: 20px 20px;
+}
+.postMess > p:nth-of-type(1) {
+  width: 1120px;
+  margin: 0 auto;
+  font-size: 20px;
+  line-height: 30px;
+  height: 40px;
+  font-weight: bold;
+}
+.postMess > div:nth-of-type(1) {
+  padding-left: 20px;
+  width: 1100px;
+  margin: 10px auto;
+  height: 50px;
+  line-height: 50px;
+  background: #fff;
+}
+.postMess > div:nth-of-type(1) span {
+  float: left;
+}
+.postMess > div:nth-of-type(1) strong {
+  display: inline-block;
+  font-weight: normal;
+  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 10px;
+  margin: 10px 5px;
+  background: #dddddd;
+  float: left;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.postMess > p:nth-of-type(2) {
+  width: 1100px;
+  padding-left: 20px;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 auto;
+  border-top: 1px solid #aaa;
+  background: #fff;
+}
+.postMess > p:nth-of-type(2) > input {
+  min-width: 320px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  border: 0;
+  outline: none;
+}
+.postMess > p:nth-of-type(2) .tip {
+  display: inline-block;
+  font-weight: normal;
+  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 10px;
+  margin: 5px 5px;
+  background: #eee;
+  float: left;
+  border-radius: 15px;
+}
+.postMess > input {
+  display: block;
+  padding-left: 20px;
+  width: 1100px;
+  margin: 0 auto;
+  border: 0;
+  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+}
+.postMess > input:nth-of-type(1) {
+  height: 50px;
+  line-height: 50px;
+  border-bottom: none;
+  font-size: 20px;
+}
+
+#editor {
+  width: 1120px;
+  margin: 0 auto;
+  background: #fff;
+  /* table 鏍峰紡 */
+  /* blockquote 鏍峰紡 */
+  /* code 鏍峰紡 */
+  /* ul ol 鏍峰紡 */
+}
+#editor table {
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+}
+#editor table td,
+#editor table th {
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  padding: 3px 5px;
+}
+#editor table th {
+  border-bottom: 2px solid #ccc;
+  text-align: center;
+}
+#editor blockquote {
+  display: block;
+  border-left: 8px solid #d0e5f2;
+  padding: 5px 10px;
+  margin: 10px 0;
+  line-height: 1.4;
+  font-size: 100%;
+  background-color: #f1f1f1;
+}
+#editor code {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  padding: 3px 5px;
+  margin: 0 3px;
+}
+#editor pre code {
+  display: block;
+}
+#editor ul, #editor ol {
+  margin: 10px 0 10px 20px;
+}
+
+#postMess {
+  width: 100px;
+  height: 36px;
+  background: #4aabba;
+  line-height: 36px;
+  text-align: center;
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  letter-spacing: 3px;
+  float: right;
+  margin-top: 20px;
+  margin-right: 10%;
+}
+
+/*# sourceMappingURL=postMessage.css.map */

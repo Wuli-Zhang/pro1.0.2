@@ -1,0 +1,44 @@
+[genuitec-file-id="wc1-10"],[genuitec-lp-path="/tuji1.0.2/src/main/webapp/css/forgetPass.css"],[genuitec-lp-enabled=false]{
+  /* for codelive */
+}
+
+nav {
+  width: 500px;
+  height: 350px;
+  background: #e0eeda;
+  margin: 100px auto;
+  border-radius: 10px;
+}
+nav > h2 {
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+}
+nav > .form-group {
+  width: 90%;
+  height: 200px;
+  margin: 30px auto;
+}
+nav > .form-group > .control-label {
+  width: 150px;
+  float: left;
+  padding-left: 50px;
+}
+nav > .form-group > .col-sm-10 {
+  float: left;
+  width: 63%;
+  margin-left: 10px;
+}
+nav > .form-group > .col-sm-10 > p {
+  color: red;
+  text-indent: 5px;
+  margin-top: 5px;
+}
+nav > .form-group > button {
+  margin-left: 200px;
+  margin-top: 60px;
+  width: 140px;
+}
+
+/*# sourceMappingURL=forgetPass.css.map */

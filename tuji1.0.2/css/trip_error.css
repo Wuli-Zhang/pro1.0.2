@@ -1,0 +1,121 @@
+[genuitec-file-id="wc1-27"],[genuitec-lp-path="/tuji1.0.2/src/main/webapp/css/trip_error.css"],[genuitec-lp-enabled=false]{
+  /* for codelive */
+}
+
+/*
+* @Author: zhang
+* @Date:   2017-10-07 14:33:54
+* @Last Modified by:   zhang
+* @Last Modified time: 2017-10-07 14:56:35
+*/
+body {
+  height: auto;
+}
+
+.banner-big {
+  width: 100%;
+  min-width: 1120px;
+  height: 340px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  background: url(../img/trip-banner.jpg) no-repeat;
+  background-position: center;
+}
+.banner-big .banner {
+  width: 1120px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.trip-big {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin-bottom: 20px;
+  position: relative;
+}
+.trip-big .editor {
+  z-index: 10;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  padding: 5px 10px;
+  background: #eeeeee;
+  border-radius: 5px;
+}
+.trip-big .trip {
+  width: 1120px;
+  height: auto;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.trip-big .trip .trip-left {
+  box-sizing: border-box;
+  width: 380px;
+  padding: 30px;
+  height: auto;
+  min-height: 800px;
+  overflow: hidden;
+  background: #f7f7f7;
+  float: left;
+  margin: 3px;
+  box-shadow: 0 0 3px 3px #ccc;
+}
+.trip-big .trip .trip-left h3 {
+  text-align: center;
+  padding: 10px 0;
+  font-size: 24px;
+  font-weight: 100;
+}
+.trip-big .trip .trip-left a {
+  float: left;
+  margin: 5px 10px;
+}
+.trip-big .trip .trip-right {
+  box-sizing: border-box;
+  width: 710px;
+  padding: 30px;
+  height: auto;
+  min-height: 800px;
+  overflow: hidden;
+  background: #f7f7f7;
+  float: left;
+  margin: 4px;
+  margin-left: 20px;
+  box-shadow: 0 0 3px 3px #ccc;
+}
+.trip-big .trip .trip-right h1 {
+  margin-bottom: 20px;
+  font-weight: 100;
+}
+.trip-big .trip .trip-right .trip-tuijian {
+  width: 300px;
+  height: 200px;
+  float: left;
+  overflow: hidden;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  background: #fff;
+  cursor: pointer;
+}
+.trip-big .trip .trip-right .trip-tuijian span {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-align: center;
+  line-height: 200px;
+  font-size: 30px;
+  color: #fff;
+  z-index: 1000;
+}
+.trip-big .trip .trip-right .trip-tuijian:hover span {
+  display: none;
+}
+
+/*# sourceMappingURL=trip_error.css.map */

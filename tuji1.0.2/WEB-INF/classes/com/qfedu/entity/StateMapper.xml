@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 测试使用xml的方式操作数据，因为动态sql就是针对于xml文件的，对接口代码没有影响，影响的只是xml文件 -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qfedu.dao.StateDao">
+	<resultMap type="state" id="statebean">
+		<id property="state_id" column="state_id"/>
+		<result property="date" column="date"/>
+		<result property="title" column="title"/>
+		<result property="content" column="content"/>
+		<result property="like" column="like"/>
+		<result property="views" column="views"/>
+		<result property="show" column="show"/>
+		<association property="user" javaType="user">
+			<id property="id" column="ID"/>
+			<!-- <result property="tel" column="tel"/>
+			<result property="email" column="email"/>
+			<result property="password" column="password"/> -->
+			<result property="nickname" column="nickname"/>
+			<result property="headportrait" column="headportrait"/>
+			<result property="sex" column="sex"/>
+			<!-- <result property="job" column="job"/>
+			<result property="introduce" column="introduce"/> -->
+		</association>
+	</resultMap>
+	
+	<!-- <resultMap type="state" id="statemap" extends="statebean">
+		<collection property="statePictures" ofType="state_Picture">
+			<id property="picture_id" column="id"/>
+			<result property="state_picture" column="picture"/>
+		</collection>	
+		
+	</resultMap> -->
+	
+	<!-- 查询最新状态 -->
+	<select id="getLatestStates" resultMap="statebean" >
+		SELECT u.ID,u.nickname,u.headportrait,s.* FROM pintu_state s 
+			INNER JOIN USER u ON s.u_id=u.ID  ORDER BY DATE DESC 
+	</select>
+	<!-- 根据点赞量查询热门状态 -->
+	<select id="getHotStates" resultMap="statebean" >
+		SELECT u.ID,u.nickname,u.headportrait,s.* FROM pintu_state s INNER JOIN
+			 USER u ON s.u_id=u.ID  ORDER BY s.like DESC,DATE DESC
+	</select>
+	
+	<!-- 查询某人其他状态(简略) -->
+	<select id="getOtherStates" resultMap="statebean" parameterType="int">
+		SELECT * FROM pintu_state WHERE u_id=#{u_id}
+	</select>
+	
+	<!--根据state_id 查询某个状态的详细信息 -->
+	<select id="getOneState" resultMap="statebean" parameterType="int">
+		SELECT u.ID,u.nickname,u.headportrait,s.* FROM pintu_state s INNER JOIN 
+			USER u ON s.u_id=u.ID  WHERE s.state_id=#{state_id}
+	</select>
+
+	
+	<!-- 发布状态 -->
+	<insert id="addState" parameterType="state" useGeneratedKeys="true" keyProperty="state_id">
+		INSERT INTO pintu_state(u_id,DATE,content) VALUES (#{u_id},unix_timestamp(now()),#{content});
+	</insert>
+
+</mapper>

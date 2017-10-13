@@ -1,0 +1,194 @@
+@charset "utf-8";
+body,html,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,fieldset,legend,textarea,p,input,button {margin:0;padding:0}
+html,body{
+	height:100%;
+	background: #e5e5e5;
+}
+img {border:0 none}  
+/* 重置fieldset（表单分组）、图片的边框为0*/
+dl,ul,ol,li {list-style:none}   
+/* 重置类表前导符号为onne,menu在HTML5中有效 */
+body{
+	font-family: "微软雅黑";
+}
+ul,li{
+	list-style: none;
+}
+a{
+	text-decoration:none;
+	color:#666;
+}
+
+#top-wrap,#top{
+	margin:0 auto;
+}
+
+
+/*----top----*/
+#top{
+	min-width:1150px;
+	background:#111;
+	height:60px;
+	#logo{
+		width:220px;
+		margin-left:1vw;
+		float:left;
+		a{
+			vertical-align:top;
+			img{
+				vertical-align:top;
+			}
+		}
+	}
+	&>ul{
+		float:left;
+		line-height:60px;
+		margin:0 8vw 0  6vw;
+		&>li{
+			float:left;
+			width:8.5vw;
+			text-align: center;
+			font-size:16px;
+			&>a{
+				color:#fff;
+			}
+		}
+	}
+	&>p:nth-of-type(1){
+		float:left;
+		width:16.4vw;
+		height:26px;
+		line-height:26px;
+		border:1px solid #bfbfbf;
+		border-radius: 5px;
+		margin:15px 2vw 0 0 ;
+		background:#000;
+		input{
+			height:100%;
+			line-height: 24px;
+			width:13vw;
+			float: left;
+			background: transparent;
+			border:0;
+			color:#fff;
+			padding-left:1vw;
+			outline:none;
+		}
+		img{
+			float: left;
+			margin:5px 2px;
+		}
+	}
+	&>p:nth-of-type(2){
+		border:0;
+		display: inline-block;
+		&>a{
+			float: left;
+			margin-top:20px;
+			color:#fff;
+			font-size:14px;
+			padding:0 1.5vw;
+			&:nth-of-type(2){
+				border-left:1px solid #fff;
+				padding-right:0;
+			}
+		}
+	}
+	#afterLogin{
+		display: none;
+		position:relative;
+		float:right;
+		width:11vw;
+		height:56px;
+		line-height:56px;
+		margin-right:30px;
+		padding:0;
+		//background:#fff;
+		#idPic{
+			width:40px;
+			height:40px;
+			border:2px solid #eee;
+			border-radius: 50%;
+			margin-right:10px;
+		}
+		#idName{
+			text-decoration: underline;
+			width:50%;
+			display: inline-block;
+			color:#50c8d7;
+			font-size:18px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		&>ul{
+			display: none;
+			position: absolute;
+			z-index: 10;
+			background:rgba(0,0,0,0.7);
+			width:80%;
+			left:0;
+			top:60px;
+			li{
+				height:36px;
+				line-height:36px;
+				border-bottom:1px dashed #666;
+				padding:0 20px;
+				a{
+					color:#fff;
+				}
+				&:nth-of-type(4){
+					border:0;
+				}
+			}
+		}
+	}
+}
+
+
+
+/*----footer----*/
+#footer-wrap{
+	background:url("../img/bottom-bg.png") repeat;
+	&>div{
+		margin:0 auto;
+		max-width:1920px;
+		min-width:1150px;
+		height:300px;
+		&>div{
+			padding:0 22%;
+			height:240px;
+			display: flex;
+			justify-content: space-around;
+			ul{
+				margin-top:4%;
+				p{
+					color:#50c8d7;
+					font-size:16px;
+					line-height: 24px;
+					&:nth-of-type(2){
+						font-style: italic;
+						margin-bottom: 5px;
+					}
+				}
+				li{
+					line-height: 22px;
+					a{
+						color:#818181;
+						&:hover{
+							text-decoration: underline;
+						}
+					}
+				}
+			}
+		}
+		&>p{
+			height:56px;
+			text-align: center;
+			color:#fff;
+			a{
+				color:#fff;
+			}
+		}
+	}
+}

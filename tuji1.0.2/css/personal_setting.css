@@ -1,0 +1,181 @@
+[genuitec-file-id="wc1-15"],[genuitec-lp-path="/tuji1.0.2/src/main/webapp/css/personal_setting.css"],[genuitec-lp-enabled=false]{
+  /* for codelive */
+}
+
+[genuitec-file-id="wc1-15"],[genuitec-lp-path="/tuji1.0.1/src/main/webapp/css/personal_setting.css"],[genuitec-lp-enabled=false]{
+  /* for codelive */
+}
+
+body {
+  background: #ededef;
+}
+
+.setting {
+  width: 998px;
+  min-height: 800px;
+  height: auto !important;
+  height: 800px;
+  margin: 40px auto;
+  overflow: hidden;
+}
+.setting .setting-left {
+  width: 733px;
+  min-height: 100px;
+  height: auto !important;
+  height: 100px;
+  border: 1px solid #ddd;
+  box-shadow: 5px 5px #ddd;
+  margin-right: 17px;
+  background: #fff;
+  float: left;
+}
+.setting .setting-left > div:nth-of-type(1) {
+  width: 100%;
+  height: 50px;
+  margin: 0 auto;
+  font-size: 20px;
+  line-height: 50px;
+  border-bottom: 1px solid #ddd;
+}
+.setting .setting-left > div:nth-of-type(1) > span:nth-of-type(1) {
+  margin-left: 40px;
+}
+.setting .setting-left > div:nth-of-type(1) > span:nth-of-type(2) {
+  margin-left: 30px;
+}
+.setting .setting-left > div:nth-of-type(2) {
+  width: 950%;
+  height: 80px;
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 80px;
+}
+.setting .setting-left > div:nth-of-type(2) > span {
+  width: 250px;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 15px;
+  text-align: center;
+}
+.setting .setting-left > div:nth-of-type(2) > .active {
+  color: #50c8d7;
+  text-decoration: underline;
+}
+.setting .setting-left > div:nth-of-type(2) > span:nth-of-type(1) {
+  margin-left: 60px;
+}
+.setting .setting-left > div:nth-of-type(2) > span:nth-of-type(2) {
+  border-left: 2px solid #ddd;
+}
+.setting .setting-left .basics > .form-horizontal {
+  margin-left: 50px;
+  margin-bottom: 50px;
+}
+.setting .setting-left .basics > .form-horizontal > .form-group {
+  margin-bottom: 30px;
+}
+.setting .setting-left .basics > .form-horizontal > .form-group > .col-sm-10 > span {
+  float: left;
+  display: inline-block;
+  color: red;
+}
+.setting .setting-left .basics > .form-horizontal > .city > form > div {
+  width: 150px;
+  margin-top: 5px;
+  float: left;
+}
+.setting .setting-left .basics > .form-horizontal > .city > form > div > span {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.setting .setting-left .basics > .form-horizontal > .city > form > div > select {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100px;
+  height: 30px;
+}
+.setting .setting-left .basics > .form-horizontal > .city > form > div > select > option {
+  width: 100px;
+  overflow: hidden;
+}
+.setting .setting-left .basics article {
+  width: 80%;
+  margin: 0 auto;
+  height: 150px;
+}
+.setting .setting-left .basics article > #view {
+  width: 100px;
+  height: 100px;
+  float: left;
+}
+.setting .setting-left .basics article > #file {
+  float: left;
+  font-size: 16px;
+}
+.setting .setting-left .basics article > #clipBtn {
+  float: right;
+  margin-left: 50px;
+}
+.setting .setting-left .basics article > #clipArea {
+  left: 200px;
+}
+.setting .setting-left .basics .info {
+  width: 70%;
+  color: #66afe9;
+  font-size: 12px;
+  float: right;
+}
+.setting .setting-left .changePassword {
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+.setting .setting-left .changePassword > form > div > div > span {
+  color: red;
+}
+.setting .setting-left .changePassword > form > div:last-child > div > button {
+  margin-left: 50px;
+}
+.setting .plan {
+  width: 248px;
+  height: 700px;
+  background: #fff;
+  float: left;
+  box-shadow: 5px 5px #ddd;
+  padding-top: 20px;
+}
+.setting .plan > p {
+  margin: 20px 15px;
+}
+.setting .plan > .progress {
+  width: 90%;
+  margin: 10px auto;
+  height: 45px;
+}
+.setting .plan > .progress > .progress-bar {
+  line-height: 45px;
+}
+
+
+
+/*头像*/
+#clipArea {
+	margin: 20px;
+	height: 300px;
+	position: absolute;
+	z-index: 20;
+}
+
+#file, #clipBtn {
+	margin: 20px;
+}
+
+#view {
+	margin: 0 auto;
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	background:url(../img/default-tx.png);
+}
+
+/*# sourceMappingURL=personal_setting.css.map */

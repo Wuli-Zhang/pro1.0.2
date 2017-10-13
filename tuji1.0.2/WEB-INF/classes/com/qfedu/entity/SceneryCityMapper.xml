@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 测试使用xml的方式操作数据，因为动态sql就是针对于xml文件的，对接口代码没有影响，影响的只是xml文件 -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qfedu.dao.SceneryCityDao">
+
+	<insert id="insertSceneryCity" parameterType="map">
+		insert into
+		scenery_city (Scenery_city_name,Scenery_city_desc)
+		values(#{Scenery_city_name},#{Scenery_city_desc})
+	</insert>
+
+	<delete id="deleteSceneryCity" parameterType="map">
+		delete from
+		scenery_city where scenery_city_id=#{scenery_city_id};
+		delete from
+		scenery where scenery_city_ids=#{scenery_city_id};
+		delete from
+		scenery_photo where scenery_ids in (select scenery_id from scenery
+		where scenery_city_ids=#{scenery_city_id})
+	</delete>
+
+	<update id="updateSceneryCity" parameterType="map">
+		update scenery_city
+		<set>
+			<if test="scenery_city_name !=null and scenery_city_name != '' ">
+				scenery_city_name=#{scenery_city_name},
+			</if>
+			<if test="scenery_city_desc !=null and scenery_city_desc != '' ">
+				scenery_city_desc=#{scenery_city_desc}
+			</if>
+			where scenery_city_id=#{scenery_city_id}
+		</set>
+	</update>
+
+	<select id="selectSceneryCity" parameterType="map"
+		resultType="com.qfedu.entity.SceneryCity">
+		select * from scenery_city
+	</select>
+	
+	<select id="selectOneSceneryCity" parameterType="map"
+		resultType="com.qfedu.entity.SceneryCity">
+		select * from scenery_city where scenery_city_id=#{scenery_city_id}
+	</select>
+</mapper>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 测试使用xml的方式操作数据，因为动态sql就是针对于xml文件的，对接口代码没有影响，影响的只是xml文件 -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qfedu.dao.PostDao">
+	<resultMap type="post" id="postbean">
+		<id property="post_id" column="post_id"/>
+		<result property="date" column="date"/>
+		<result property="title" column="title"/>
+		<result property="content" column="content"/>
+		<result property="like" column="like"/>
+		<result property="views" column="views"/>
+		<result property="show" column="show"/>
+		<association property="user" javaType="user">
+			<id property="id" column="ID"/>
+			<!-- <result property="tel" column="tel"/>
+			<result property="email" column="email"/>
+			<result property="password" column="password"/> -->
+			<result property="nickname" column="nickname"/>
+			<result property="headportrait" column="headportrait"/>
+			<result property="sex" column="sex"/>
+			<!-- <result property="job" column="job"/>
+			<result property="introduce" column="introduce"/> -->
+		</association>
+	</resultMap>
+	
+	<resultMap type="post" id="postmap" extends="postbean">
+		<collection property="postPictures" ofType="post_Picture">
+			<id property="picture_id" column="id"/>
+			<result property="post_picture" column="picture"/>
+		</collection>	
+		
+		<collection property="tags" ofType="tag">
+			<id property="tag_id" column="tag_id"/>
+			<result property="tag_name" column="tagname"/>
+		</collection>	
+	</resultMap>
+	
+	<!-- 查询最新帖子(简略) -->
+	<select id="getLatestPosts" resultMap="postbean" >
+		SELECT u.ID, u.nickname,u.headportrait,p.* ,tag.* FROM situ_post p INNER JOIN USER u 
+			ON p.u_id=u.ID  LEFT JOIN tag  ON  p.post_id=tag.post_id ORDER BY DATE DESC 
+	</select>
+	<!-- 根据点赞量查询热门帖子(简略) -->
+	<select id="getHotPosts" resultMap="postbean" >
+		SELECT u.ID,u.nickname,u.headportrait,p.* ,tag.* FROM situ_post p INNER JOIN USER u 
+			ON p.u_id=u.ID  LEFT JOIN tag  ON  p.post_id=tag.post_id ORDER BY p.like DESC,DATE DESC
+	</select>
+	
+	<!-- 查询某人其他帖子(简略) -->
+	<select id="getOtherPosts" resultMap="postbean" parameterType="int">
+		SELECT * FROM situ_post WHERE u_id=#{u_id}
+	</select>
+	
+	<!--根据post_id 查询某个帖子的详细信息 -->
+	<select id="getOnePost" resultMap="postmap" parameterType="int">
+		SELECT u.ID,u.nickname,u.headportrait,p.*,tag.* FROM situ_post p INNER JOIN USER u 
+			ON p.u_id=u.ID  LEFT JOIN tag ON p.post_id=tag.post_id WHERE p.post_id=#{post_id}
+	</select>
+	
+	
+	
+	<!-- 根据热门标签tagname查询帖子 -->
+	<select id="getPostsByTag" resultMap="postbean" parameterType="java.lang.String">
+		SELECT u.ID,u.nickname,u.headportrait,p.* ,tag.* FROM situ_post p INNER JOIN USER u 
+			ON p.u_id=u.ID  LEFT JOIN tag  ON  p.post_id=tag.post_id WHERE tagname=#{tagname} ORDER BY DATE DESC
+	</select>
+	
+	<!-- 添加帖子 -->
+	<insert id="addPost" parameterType="post" useGeneratedKeys="true" keyProperty="post_id">
+		insert into situ_post(u_id,date,title,content) values(#{u_id},unix_timestamp(now()),#{title},#{content});
+	</insert>
+	
+	
+	
+	
+	
+</mapper>

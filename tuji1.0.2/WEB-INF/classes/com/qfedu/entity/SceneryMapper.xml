@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 测试使用xml的方式操作数据，因为动态sql就是针对于xml文件的，对接口代码没有影响，影响的只是xml文件 -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qfedu.dao.SceneryDao">
+	
+	<insert id="insertScenery" parameterType="map">
+		insert into scenery (scenery_name,scenery_desc,scenery_phone,scenery_price,scenery_address,scenery_city_ids) VALUES(#{scenery_name},#{scenery_desc},#{scenery_phone},#{scenery_price},#{scenery_address},#{scenery_city_ids});
+	</insert>
+	
+	<insert id="insertSceneryPhoto" parameterType="map">
+		insert into scenery_photo (scenery_photo_desc,scenery_ids) values(#{scenery_photo_desc},#{scenery_ids})
+	</insert>
+	
+	<delete id="deleteScenery" parameterType="map">
+		delete from
+		scenery where scenery_city_ids=#{scenery_city_id} and scenery_id=#{scenery_id};
+		delete from
+		scenery_photo where scenery_ids=#{scenery_id}
+	</delete>
+
+	<update id="updateScenery" parameterType="map">
+		update scenery
+		<set>
+			<if test="scenery_name !=null and scenery_name != '' ">
+				scenery_name=#{scenery_name},
+			</if>
+			<if test="scenery_desc !=null and scenery_desc != '' ">
+				scenery_desc=#{scenery_desc},
+			</if>
+			<if test="scenery_phone !=null and scenery_phone != '' ">
+				scenery_phone=#{scenery_phone},
+			</if>
+			<if test="scenery_price !=null and scenery_price != '' ">
+				scenery_price=#{scenery_price},
+			</if>
+			<if test="scenery_address !=null and scenery_address != '' ">
+				scenery_address=#{scenery_address}
+			</if>
+			where scenery_id=#{scenery_id} and scenery_city_ids=#{scenery_city_ids}
+		</set>
+	</update>
+
+	<select id="selectScenery" parameterType="map"
+		resultType="com.qfedu.entity.Scenery">
+		select * from scenery where scenery_city_ids=#{scenery_city_ids}
+	</select>
+	
+	<select id="selectIdScenery" parameterType="map" resultType="com.qfedu.entity.Scenery">
+		select * from scenery where scenery_name=#{scenery_name} and scenery_city_ids=#{scenery_city_ids}
+	</select>
+	
+	<select id="selectOneScenery" parameterType="map"
+		resultType="com.qfedu.entity.Scenery">
+		select * from scenery where scenery_id=#{scenery_id} and scenery_city_ids=#{scenery_city_ids}
+	</select>
+	
+	<select id="selectOneSceneryPhoto" parameterType="map"
+		resultType="com.qfedu.entity.SceneryPhoto">
+		select scenery_photo_desc from scenery_photo where scenery_ids=#{scenery_id}	
+		</select>
+</mapper>

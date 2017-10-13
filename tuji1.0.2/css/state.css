@@ -1,0 +1,263 @@
+[genuitec-file-id="wc1-23"],[genuitec-lp-path="/tuji1.0.2/src/main/webapp/css/state.css"],[genuitec-lp-enabled=false]{
+  /* for codelive */
+}
+
+@charset "UTF-8";
+/*
+* @Author: zhang
+* @Date:   2017-10-07 16:13:35
+* @Last Modified by:   zhang
+* @Last Modified time: 2017-10-08 11:13:56
+*/
+.main-big {
+  width: 100%;
+  min-width: 1120px;
+  margin: 0 auto;
+  padding: 30px 0;
+  background: #e5e5e5 url(../img/state-bg.png) repeat-x;
+}
+.main-big .main {
+  width: 1120px;
+  margin: 0 auto;
+  height: auto;
+  overflow: hidden;
+}
+.main-big .main .main-left {
+  box-sizing: border-box;
+  width: 710px;
+  min-height: 600px;
+  padding: 0 20px;
+  margin: 3px;
+  float: left;
+}
+.main-big .main .main-left .state {
+  box-sizing: border-box;
+  width: 100%;
+  box-shadow: 0 0 3px 3px #aaa;
+  min-height: 300px;
+  background: #fff;
+  margin-bottom: 30px;
+  padding: 40px;
+}
+.main-big .main .main-left .state .state-top {
+  width: 100%;
+  height: 80px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #ccc;
+}
+.main-big .main .main-left .state .state-top img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  vertical-align: bottom;
+  float: left;
+  cursor: pointer;
+  padding: 2px;
+  border: 1px solid #00B7EE;
+}
+.main-big .main .main-left .state .state-top p {
+  height: 50px;
+  line-height: 50px;
+  margin-left: 30px;
+  font-size: 24px;
+  font-family: '鍗庢枃琛屾シ','闅朵功','骞煎渾';
+  float: left;
+}
+.main-big .main .main-left .state .state-mid {
+  padding-bottom: 10px;
+}
+.main-big .main .main-left .state .state-mid textarea {
+  width: 97%;
+  height: 120px;
+  margin: 0 auto;
+  outline: none;
+  resize: none;
+  border-radius: 8px;
+  font-size: 18px;
+  padding: 5px;
+  margin-top: 10px;
+}
+.main-big .main .main-left .state .state-mid .btn-photo {
+  width: 80px;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 10px;
+  color: #fff;
+  outline: none;
+  background: #5CB85C;
+}
+.main-big .main .main-left .state .state-mid #wrapper {
+  position: absolute;
+  display: none;
+}
+.main-big .main .main-left .state .state-bottom .btn-fabu {
+  width: 80px;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  background: #72d8e5;
+  font-size: 16px;
+  color: #fff;
+  margin-left: 500px;
+  outline: none;
+}
+.main-big .main .main-left .state-list {
+  min-height: 500px;
+  box-shadow: 0 0 3px 3px #aaa;
+  background: #fff;
+  padding: 15px;
+}
+.main-big .main .main-left .state-list .state-state {
+  width: 95%;
+  margin: 20px auto;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #ddd;
+}
+.main-big .main .main-left .state-list .state-state > a {
+  font-size: 20px;
+  color: #31708F;
+  padding: 5px 20px;
+  background: #5BC0DE;
+  border-radius: 10px;
+  color: #fff;
+  margin-right: 10px;
+}
+.main-big .main .main-left .state-list .state-item {
+  border-bottom: 1px dashed #aaa;
+  width: 90%;
+  margin: 0 auto;
+  min-height: 100px;
+}
+.main-big .main .main-left .state-list .state-item .item-top {
+  display: inline-block;
+  margin: 10px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  float: left;
+  border: 3px solid #ADDBC4;
+}
+.main-big .main .main-left .state-list .state-item .item-top img {
+  width: 100%;
+  height: 100%;
+}
+.main-big .main .main-left .state-list .state-item .nickname {
+  margin-top: 35px;
+  float: left;
+  width: 80%;
+  margin-left: 10px;
+  font-size: 20px;
+  color: #959595;
+}
+.main-big .main .main-left .state-list .state-item .nickname > span {
+  float: right;
+  color: #959595;
+  font-size: 13px;
+  padding-top: 13px;
+}
+.main-big .main .main-left .state-list .state-item .item-mid {
+  clear: both;
+  background: #fff;
+  width: 80%;
+  color: #626262;
+  min-height: 70px;
+  padding: 5px 5% 10px;
+  padding-top: 20px;
+  text-indent: 20px;
+}
+.main-big .main .main-left .state-list .state-item .item-bottom {
+  width: 95%;
+  float: right;
+  margin-right: 20px;
+  color: #b5b5b5;
+  border-bottom: 1px solid #eee;
+}
+.main-big .main .main-left .state-list .state-item .item-bottom > i:nth-of-type(1) {
+  display: inline-block;
+  padding-left: 20px;
+  padding-right: 10px;
+  background: url("../img/icon/zan.png") no-repeat left center;
+}
+.main-big .main .main-left .state-list .state-item .item-bottom > i:nth-of-type(2) {
+  display: inline-block;
+  padding-left: 20px;
+  background: url("../img/icon/pinglun.png") no-repeat left center;
+}
+.main-big .main .main-left .state-list .state-item .item-huifu {
+  width: 80%;
+  padding: 0 5%;
+  min-height: 50px;
+  background: #eeeeee;
+  margin: 25px auto;
+  border-radius: 5px;
+}
+.main-big .main .main-left .state-list .state-item .item-huifu div textarea {
+  resize: none;
+  margin: 10px auto;
+  width: 96%;
+  height: 50px;
+}
+.main-big .main .main-left .state-list .state-item .item-huifu .other-item .other-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.main-big .main .main-left .state-list .state-item .item-huifu .other-item .other-img img {
+  width: 100%;
+  height: 100%;
+}
+.main-big .main .main-right {
+  box-sizing: border-box;
+  box-shadow: 0 0 3px 3px #999;
+  width: 380px;
+  min-height: 500px;
+  padding: 20px;
+  margin: 3px;
+  margin-left: 20px;
+  background: #fff;
+  float: left;
+}
+.main-big .main .main-right .hot-label {
+  width: 100%;
+  min-height: 120px;
+}
+.main-big .main .main-right .hot-label h3 {
+  margin-bottom: 20px;
+}
+.main-big .main .main-right .hot-label i {
+  float: left;
+  background: #ccc;
+  padding: 3px 5px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.main-big .main .main-right .hot-label i:hover {
+  background: #333;
+  color: #fff;
+}
+.main-big .main .main-right .hot-user {
+  width: 100%;
+  height: 220px;
+}
+.main-big .main .main-right .hot-user h3 {
+  margin-bottom: 30px;
+}
+.main-big .main .main-right .hot-user img {
+  width: 50px;
+  height: 50px;
+  vertical-align: bottom;
+  float: left;
+  border-radius: 50%;
+  margin-left: 30px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=state.css.map */

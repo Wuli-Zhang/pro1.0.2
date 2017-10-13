@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 测试使用xml的方式操作数据，因为动态sql就是针对于xml文件的，对接口代码没有影响，影响的只是xml文件 -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qfedu.dao.UserDao">
+	<resultMap type="com.qfedu.entity.User" id="userbean">
+		<id property="id" column="ID" />
+		<result property="tel" column="tel" />
+		<result property="email" column="email" />
+		<result property="password" column="password" />
+		<result property="nickname" column="nickname" />
+		<result property="headportrait" column="headportrait" />
+		<result property="sex" column="sex" />
+		<result property="job" column="job" />
+		<result property="introduce" column="introduce" />
+	</resultMap>
+	<!-- <resultMap type="user" id="usermap" extends="userbean"> <association 
+		property="province" javaType="province"> </association> </resultMap> -->
+
+
+	<select id="selectPhone" resultType="com.qfedu.entity.User"
+		parameterType="map">
+		select * from user where tel=#{tel}
+		</select>
+	<update id="updatePassword" parameterType="map">
+		update user set password=#{password} where tel=#{tel}
+	</update>
+	
+	
+	<insert id="setUser" parameterType="map">
+		insert into user(password,nickname,headportrait
+		<if test="tel != null and tel != ''">,tel</if>
+		<if test="email != null and email != ''">,email</if>
+		) values(#{password},#{nickname},#{headportrait}
+		<if test="tel != null and tel != ''">,#{tel}</if>
+		<if test="email != null and email != ''">#{email}</if>
+		)
+	</insert>
+	<select id="getUser" resultType="com.qfedu.entity.User"
+		parameterType="map">
+		select * from user
+		<where>
+			<if test="tel != null and tel != ''">
+				tel=#{tel}
+			</if>
+			<if test="email != null and email != ''">
+				email=#{email}
+			</if>
+			and password=#{password}
+		</where>
+	</select>
+
+	<select id="findUserSet" resultMap="userbean" parameterType="int">
+		select * from user where ID=#{id}
+	</select>
+
+	<update id="updateUserSet" parameterType="map">
+		UPDATE USER
+		<set>
+			<if test="nickname!=null and nickname !=''">nickname=#{nickname},</if>
+			<if test="headportrait!=null and headportrait !=''">headportrait=#{headportrait},</if>
+			<if test="sex==1||sex==0">sex=#{sex},</if>
+			<if test="job!=null and job !=''">job=#{job},</if>
+			<if test="introduce!=null and introduce !=''">introduce=#{introduce}</if>
+		</set>
+		WHERE ID=#{id}
+		<!-- UPDATE USER SET nickname=#{nickname},headportrait=#{headportrait},sex=#{sex},job=#{job},introduce=#{introduce} 
+			WHERE ID=#{id} -->
+	</update>
+
+	<update id="changePwd" parameterType="map">
+		UPDATE USER SET
+		PASSWORD=#{newpwd} WHERE ID=#{id}
+	</update>
+
+</mapper>

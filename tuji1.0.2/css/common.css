@@ -1,0 +1,209 @@
+[genuitec-file-id="wc1-5"],[genuitec-lp-path="/tuji1.0.2/src/main/webapp/css/common.css"],[genuitec-lp-enabled=false]{
+  /* for codelive */
+}
+
+@charset "UTF-8";
+body, html, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, form, fieldset, legend, textarea, p, input, button {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  background: #e5e5e5;
+}
+
+img {
+  border: 0 none;
+}
+
+/* 重置fieldset（表单分组）、图片的边框为0*/
+dl, ul, ol, li {
+  list-style: none;
+}
+
+/* 重置类表前导符号为onne,menu在HTML5中有效 */
+body {
+  font-family: "微软雅黑";
+}
+
+ul, li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #666;
+}
+
+#top-wrap, #top {
+  margin: 0 auto;
+}
+
+/*----top----*/
+#top {
+  min-width: 1150px;
+  background: #111;
+  height: 60px;
+}
+#top #logo {
+  width: 220px;
+  margin-left: 1vw;
+  float: left;
+}
+#top #logo a {
+  vertical-align: top;
+}
+#top #logo a img {
+  vertical-align: top;
+}
+#top > ul {
+  float: left;
+  line-height: 60px;
+  margin: 0 8vw 0  6vw;
+}
+#top > ul > li {
+  float: left;
+  width: 8.5vw;
+  text-align: center;
+  font-size: 16px;
+}
+#top > ul > li > a {
+  color: #fff;
+}
+#top > p:nth-of-type(1) {
+  float: left;
+  width: 16.4vw;
+  height: 26px;
+  line-height: 26px;
+  border: 1px solid #bfbfbf;
+  border-radius: 5px;
+  margin: 15px 2vw 0 0;
+  background: #000;
+}
+#top > p:nth-of-type(1) input {
+  height: 100%;
+  line-height: 24px;
+  width: 13vw;
+  float: left;
+  background: transparent;
+  border: 0;
+  color: #fff;
+  padding-left: 1vw;
+  outline: none;
+}
+#top > p:nth-of-type(1) img {
+  float: left;
+  margin: 5px 2px;
+}
+#top > p:nth-of-type(2) {
+  border: 0;
+  display: inline-block;
+}
+#top > p:nth-of-type(2) > a {
+  float: left;
+  margin-top: 20px;
+  color: #fff;
+  font-size: 14px;
+  padding: 0 1.5vw;
+}
+#top > p:nth-of-type(2) > a:nth-of-type(2) {
+  border-left: 1px solid #fff;
+  padding-right: 0;
+}
+#top #afterLogin {
+  display: none;
+  position: relative;
+  float: right;
+  width: 11vw;
+  height: 56px;
+  line-height: 56px;
+  margin-right: 30px;
+  padding: 0;
+}
+#top #afterLogin #idPic {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #eee;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+#top #afterLogin #idName {
+  text-decoration: underline;
+  width: 50%;
+  display: inline-block;
+  color: #50c8d7;
+  font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#top #afterLogin > ul {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.7);
+  width: 80%;
+  left: 0;
+  top: 60px;
+}
+#top #afterLogin > ul li {
+  height: 36px;
+  line-height: 36px;
+  border-bottom: 1px dashed #666;
+  padding: 0 20px;
+}
+#top #afterLogin > ul li a {
+  color: #fff;
+}
+#top #afterLogin > ul li:nth-of-type(4) {
+  border: 0;
+}
+
+/*----footer----*/
+#footer-wrap {
+  background: url("../img/bottom-bg.png") repeat;
+}
+#footer-wrap > div {
+  margin: 0 auto;
+  max-width: 1920px;
+  min-width: 1150px;
+  height: 300px;
+}
+#footer-wrap > div > div {
+  padding: 0 22%;
+  height: 240px;
+  display: flex;
+  justify-content: space-around;
+}
+#footer-wrap > div > div ul {
+  margin-top: 4%;
+}
+#footer-wrap > div > div ul p {
+  color: #50c8d7;
+  font-size: 16px;
+  line-height: 24px;
+}
+#footer-wrap > div > div ul p:nth-of-type(2) {
+  font-style: italic;
+  margin-bottom: 5px;
+}
+#footer-wrap > div > div ul li {
+  line-height: 22px;
+}
+#footer-wrap > div > div ul li a {
+  color: #818181;
+}
+#footer-wrap > div > div ul li a:hover {
+  text-decoration: underline;
+}
+#footer-wrap > div > p {
+  height: 56px;
+  text-align: center;
+  color: #fff;
+}
+#footer-wrap > div > p a {
+  color: #fff;
+}
+
+/*# sourceMappingURL=common.css.map */

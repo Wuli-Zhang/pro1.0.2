@@ -1,0 +1,135 @@
+/*
+* @Author: zhang
+* @Date:   2017-10-07 09:42:32
+* @Last Modified by:   zhang
+* @Last Modified time: 2017-10-07 14:29:12
+*/
+body{
+	height:auto;
+}
+.banner-big{
+	width:100%;
+	min-width:1120px;
+	height:340px;
+	margin:0 auto;
+	margin-bottom:30px;
+	background: url(../img/trip-banner.jpg) no-repeat;
+	background-position:center ;
+	.banner{
+		width:1120px;
+		height:100%;
+		margin:0 auto;
+	}
+}
+
+
+.trip-big{
+	width:100%;
+	height:auto;
+	overflow:hidden;
+	margin-bottom:20px;
+	.trip{
+		width:1120px;
+		height:auto;
+		margin:0 auto;
+		overflow: hidden;
+		.trip-left{
+			box-sizing:border-box;
+			width:380px;
+			padding:30px;
+			height:auto;
+			min-height:800px;
+			overflow: hidden;
+			background: #f7f7f7;
+			float:left;
+			margin:3px;
+			box-shadow:0 0 3px 3px #ccc;
+			h3{
+				text-align:center;
+				padding:10px 0;
+				font-size:24px;
+				font-weight:100;
+			}
+			a{
+				float:left;
+				margin:5px 10px;
+			}
+		}
+		.trip-right{
+			box-sizing:border-box;
+			width:710px;
+			padding:30px;
+			height:auto;
+			min-height:800px;
+			overflow: hidden;
+			background: #f7f7f7;
+			float:left;
+			margin:4px;
+			margin-left:20px;
+			box-shadow:0 0 3px 3px #ccc;
+			.trip-r-city{
+				h3{
+					text-align:center;
+					padding:15px 0;
+					font-size:28px;
+					font-weight:100;
+				}
+				p{
+					text-indent: 2em;
+					line-height:22px;
+				}
+			}
+			.trip-r-view{
+				box-sizing:border-box;
+				
+				h3{
+					text-align:center;
+					padding:20px 0;
+					font-size:24px;
+					font-weight:100;
+				}
+				.trip-view-show{
+					background: #fff;
+					overflow: hidden;
+					padding:20px;
+					margin-bottom:10px;
+					a{
+						.view-jieshao{
+							float:left;
+							width:330px;
+							h4{
+								font-weight:100;
+								font-size:20px;
+								padding:10px 0;
+							}
+							p{
+								text-indent: 2em;
+								display: -webkit-box;
+								-webkit-box-orient: vertical;
+								-webkit-line-clamp: 5;
+								overflow: hidden;
+								padding-right:20px;
+							}
+							
+						}
+						.view-img{
+							float:left;
+							width:280px;
+							height:200px;
+							overflow: hidden;
+							img{
+								height:100%;
+								width:auto;
+								vertical-align: bottom;
+							}
+						}
+
+						&:hover{
+							color:#3f3f3f;
+						}
+					}
+				}
+			}
+		}
+	}
+}

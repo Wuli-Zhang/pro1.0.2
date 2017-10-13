@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 测试使用xml的方式操作数据，因为动态sql就是针对于xml文件的，对接口代码没有影响，影响的只是xml文件 -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qfedu.dao.PersonageDao">
+	<select id="selectPersonage" parameterType="map" resultType="com.qfedu.entity.Personage">
+		select * from user where ID=#{ID}
+	</select>
+	
+	<select id="selectFans" parameterType="map" resultType="com.qfedu.entity.Personage">
+		select * from user where ID IN(select fans_id from relation where concern_id=#{concern_id})
+	</select>
+	
+	<select id="selectconcern" parameterType="map" resultType="com.qfedu.entity.Personage">
+		select * from user where ID IN(select concern_id from relation where fans_id=#{fans_id})
+	</select>
+	
+	<select id="isFans" parameterType="map" resultType="com.qfedu.entity.Relation">
+		select * from relation where fans_id=#{fans_id} and concern_id=#{concern_id}
+	</select>
+	
+	<insert id="guanzhu" parameterType="map">
+		insert into relation (fans_id,concern_id) values(#{fans_id},#{concern_id})
+	</insert>
+	
+	<delete id="quxiaoguanzhu" parameterType="map">
+		delete from relation where fans_id=#{fans_id} and concern_id=#{concern_id}
+	</delete>
+</mapper>

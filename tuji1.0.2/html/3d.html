@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<title>3d城市列表</title>
+<link rel="shortcut icon" type="image/x-icon" href="../img/tuji.ico">
+<style>
+html, body {
+	height: 100%;
+}
+
+body {
+	background:#000;
+	margin: 0;
+	font-family: Helvetica, sans-serif;;
+	overflow: hidden;
+	background:url(../img/3d.jpg) no-repeat;
+	background-size: 100%;
+}
+
+a {
+	color: #ffffff;
+}
+.element {
+	width: 120px;
+	height: 160px;
+	box-shadow: 0px 0px 12px rgba(110,110,110,0.5);
+	border: 1px solid rgba(127,127,127,0.25);
+
+	text-align: center;
+	cursor: default;
+}
+
+.element:hover {
+	box-shadow: 0px 0px 12px rgba(110,110,110,0.75);
+	border: 1px solid rgba(200,200,200,0.75);
+}
+
+	
+	.element .symbol {
+		position: absolute;
+		top: 10px;
+		left: 0px;
+		right: 0px;
+		font-size: 60px;
+		font-weight: bold;
+		color: rgba(255,255,255,0.75);
+		text-shadow: 0 0 10px rgba(0,255,255,0.95);
+	}
+
+#goback{
+	width: 120px;
+	height: 30px;
+	position: absolute;
+	right: 50px;
+	bottom: 50px;
+	background: #fff;
+	border:none;
+	border-radius: 10px;
+	color: #000;
+	outline: none;
+}
+
+</style>
+<script src="../js/lib/three.min.js"></script>
+<script src="../js/lib/tween.min.js"></script>
+<script src="../js/lib/TrackballControls.js"></script>
+<script src="../js/lib/CSS3DRenderer.js"></script>
+<script type="text/javascript" src="../js/lib/jquery-1.12.4.min.js"></script>
+<script>"undefined"==typeof CODE_LIVE&&(!function(e){var t={nonSecure:"57474",secure:"57483"},c={nonSecure:"http://",secure:"https://"},r={nonSecure:"127.0.0.1",secure:"gapdebug.local.genuitec.com"},n="https:"===window.location.protocol?"secure":"nonSecure";script=e.createElement("script"),script.type="text/javascript",script.async=!0,script.src=c[n]+r[n]+":"+t[n]+"/codelive-assets/bundle.js",e.getElementsByTagName("head")[0].appendChild(script)}(document),CODE_LIVE=!0);</script><script>"undefined"==typeof CODE_LIVE&&(!function(e){var t={nonSecure:"57474",secure:"57483"},c={nonSecure:"http://",secure:"https://"},r={nonSecure:"127.0.0.1",secure:"gapdebug.local.genuitec.com"},n="https:"===window.location.protocol?"secure":"nonSecure";script=e.createElement("script"),script.type="text/javascript",script.async=!0,script.src=c[n]+r[n]+":"+t[n]+"/codelive-assets/bundle.js",e.getElementsByTagName("head")[0].appendChild(script)}(document),CODE_LIVE=!0);</script></head>
+<body data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-33" data-genuitec-path="/tuji1.0.1/src/main/webapp/html/3d.html" data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-33" data-genuitec-path="/tuji1.0.2/src/main/webapp/html/3d.html">
+<div id="container" data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-33" data-genuitec-path="/tuji1.0.1/src/main/webapp/html/3d.html" data-genuitec-lp-enabled="false" data-genuitec-file-id="wc1-33" data-genuitec-path="/tuji1.0.2/src/main/webapp/html/3d.html"></div>
+
+<button id="goback">返回</button>
+<script>
+
+	// 返回按钮
+$("#goback").click(function(){
+	location.href="trip.html"
+})
+
+var table = [
+"西安","大理","怒江","丽江","香格里拉","西双版纳","昆明","遵义","黔南","成都","九寨沟","康定","乐山","宜宾","西昌","古蜀道","稻城","重庆","三峡","乌鲁木齐","吐鲁番","伊利","喀什","库尔勒","西宁","青海湖","格尔木","黄南","兰州","天水","敦煌","嘉峪关","甘南","银川","华山","宝鸡","延安","汉中","上海","南京","苏州","无锡","镇江","扬州","杭州","千岛湖","宁波","温州","绍兴","金华","嘉兴","合肥","黄山","九华山","福州","厦门","泉州","武夷山","南昌","九江","景德镇","井冈山","济南","曲阜","青岛","烟台","蓬莱","威海","广州","深圳","珠海","南宁","桂林","三亚","海口","张家界","衡山","武汉","岳阳","武当山","神农架","宜昌","郑州","荆州","洛阳","开封","安阳","三门峡","北京","天津","太原","平遥","大同","临汾","忻州","呼和浩特","包头","锡林浩特","呼伦贝尔","沈阳","大连","兴城","长春","长白山","哈尔滨","牡丹江","漠河","香港","澳门","台湾"
+]
+
+// ajax获取地址
+$.ajax({
+	url:"http://www.maxlucio.top/tuji1.0.1/selectSceneryCity",
+	type:"post",
+	dataType:"json",
+	success:function(data){
+		
+	},
+	error:function(){
+		
+	}
+})
+
+// ---------以下为插件代码。。。----------
+var camera, scene, renderer;
+var controls;
+
+var objects = [];
+var targets = { table: [], sphere: [], helix: [], grid: [] };
+
+init();
+animate();
+
+function init() {
+
+	camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 10000 );
+	camera.position.z = 3000;
+
+	scene = new THREE.Scene();
+
+	// table
+
+	for ( var i = 0; i < table.length; i++ ) {
+
+		var a = document.createElement("a");
+		a.setAttribute("href", "javascript:;");
+
+		var element = document.createElement( 'div' );
+		element.className = 'element';
+		element.style.backgroundColor = 'rgba(0,0,0,0.5)';
+
+
+		var symbol = document.createElement( 'div' );
+		symbol.className = 'symbol';
+		symbol.textContent = table[ i ];
+		element.appendChild( symbol );
+		a.appendChild(element);
+
+		var object = new THREE.CSS3DObject( a );
+		object.position.x = Math.random() * 4000 - 2000;
+		object.position.y = Math.random() * 4000 - 2000;
+		object.position.z = Math.random() * 4000 - 2000;
+		scene.add( object );
+
+		objects.push( object );
+
+		targets.table.push( object );
+
+	}
+	// helix
+
+	var vector = new THREE.Vector3();
+
+	for ( var i = 0, l = objects.length; i < l; i ++ ) {
+
+		var phi = i * 0.175 + Math.PI;
+
+		var object = new THREE.Object3D();
+
+		object.position.x = 900 * Math.sin( phi );
+		object.position.y = - ( i * 8 ) + 450;
+		object.position.z = 900 * Math.cos( phi );
+
+		vector.x = object.position.x * 2;
+		vector.y = object.position.y;
+		vector.z = object.position.z * 2;
+
+		object.lookAt( vector );
+
+		targets.helix.push( object );
+
+	}
+
+	
+
+	renderer = new THREE.CSS3DRenderer();
+	renderer.setSize( window.innerWidth, window.innerHeight );
+	renderer.domElement.style.position = 'absolute';
+	document.getElementById( 'container' ).appendChild( renderer.domElement );
+	//
+
+	controls = new THREE.TrackballControls( camera, renderer.domElement );
+	controls.rotateSpeed = 0.5;
+	controls.minDistance = 1800;
+	controls.maxDistance = 3500;
+	controls.addEventListener( 'change', render );
+
+	
+
+	transform( targets.helix, 3000 );
+
+	//
+
+	window.addEventListener( 'resize', onWindowResize, false );
+
+}
+
+
+
+
+
+
+function transform( targets, duration ) {
+
+	TWEEN.removeAll();
+
+	for ( var i = 0; i < objects.length; i ++ ) {
+
+		var object = objects[ i ];
+		var target = targets[ i ];
+
+		new TWEEN.Tween( object.position )
+			.to( { x: target.position.x, y: target.position.y, z: target.position.z }, Math.random() * duration + duration )
+			.easing( TWEEN.Easing.Exponential.InOut )
+			.start();
+
+		new TWEEN.Tween( object.rotation )
+			.to( { x: target.rotation.x, y: target.rotation.y, z: target.rotation.z }, Math.random() * duration + duration )
+			.easing( TWEEN.Easing.Exponential.InOut )
+			.start();
+
+	}
+
+	new TWEEN.Tween( this )
+		.to( {}, duration * 2 )
+		.onUpdate( render )
+		.start();
+
+}
+
+function onWindowResize() {
+
+	camera.aspect = window.innerWidth / window.innerHeight;
+	camera.updateProjectionMatrix();
+
+	renderer.setSize( window.innerWidth, window.innerHeight );
+
+	render();
+
+}
+
+function animate() {
+
+	requestAnimationFrame( animate );
+
+	TWEEN.update();
+
+	controls.update();
+
+}
+
+function render() {
+
+	renderer.render( scene, camera );
+
+}
+
+$("#container div div a").click(function(){
+	localStorage.setItem("findCity", $(this).find('.symbol').html());
+	location.href = "trip_list.html";
+})
+
+
+</script>
+</body>
+</html>

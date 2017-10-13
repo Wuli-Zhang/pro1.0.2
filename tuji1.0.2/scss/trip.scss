@@ -1,0 +1,79 @@
+/*
+* @Author: zhang
+* @Date:   2017-09-25 20:04:25
+* @Last Modified by:   zhang
+* @Last Modified time: 2017-10-07 09:25:16
+*/
+@charset "utf-8";
+section{
+	width:100%;
+	height:570px;
+	margin:0 auto;
+	background: #3899a0;
+	position: relative;
+	.section-big{
+		width:100%;
+		height:570px;
+		margin:0 auto;
+		overflow: hidden;
+		background: url(../img/trip-bg.png) no-repeat;
+		background-position:center;
+		position:relative;
+		.search{
+			position: absolute;
+			left:50%;
+			top:250px;
+			margin-left:-125px;
+			width:350px;
+			height:30px;
+			overflow: hidden;
+			border-radius: 10px;
+			background: #fff;
+			input{
+			    float: left;
+				width:90%;
+				height:100%;
+				padding-left:10px ;
+				box-sizing: border-box;
+				border:none;
+				outline: none;
+				font-size: 14px;
+			}
+			img{
+				box-sizing:border-box;
+				padding:3px;
+			    float: left;
+			    width: auto;
+			    height: 100%;
+			    background: #fff;
+			    box-sizing: border-box;
+			    border-left:1px solid #ccc;
+			    cursor: pointer;
+			}
+		}
+		.btn-go3D{
+		    width: auto;
+		    height: 30px;
+		    padding:0 20px ;
+		    background: #fff;
+		    position: absolute;
+		    left: 50%;
+		    margin-left:-40px;
+		    top: 330px;
+		    border: none;
+		    border-radius:10px ;
+		    font-size:18px;
+		    color:#333;
+		    outline: none;
+		}
+	}
+}
+.editor{
+	z-index: 10;
+	position:absolute;
+	bottom:30px;
+	right:30px;
+	padding:5px 10px;
+	background: #eeeeee;;
+	border-radius: 5px;
+}
