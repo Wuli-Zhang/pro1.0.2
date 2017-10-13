@@ -8,7 +8,11 @@ $(function(){
     var arrSearch = strSearch.split("?")[1];
     var thisuser = arrSearch.split('=')[1];    //当前主页的userID
 
-    var myUID = localStorage.getItem(UID);     //从webstorage中获取我的UID
+    var myUID = localStorage.getItem('UID');     //从webstorage中获取我的UID
+
+    $("#thiscons").attr('href','follow.html?username='+thisuser);
+    $("#thisfans").attr('href','followed.html?username='+thisuser);
+
 
 //var user = "111"
     
@@ -128,7 +132,7 @@ $(function(){
         $(".content").html("");
         $.ajax({
             type:"post",
-            url:"http://www.maxlucio.top/tuji1.0.1/getotherposts",                      //获取帖子信息地址
+            url:"http://www.maxlucio.top/tuji1.0.2/getotherposts",                      //获取帖子信息地址
             data:{UID:''},
             success:function(){
 
@@ -140,7 +144,7 @@ $(function(){
     // 获取个人信息
     $.ajax({
         type:"post",
-        url:"http://www.maxlucio.top/tuji1.0.1/selectPersonage",                      //获取个人信息地址
+        url:"http://www.maxlucio.top/tuji1.0.2/selectPersonage",                      //获取个人信息地址
         data:{ID:thisuser},
         success:function(data){
             console.log(data);
@@ -161,7 +165,6 @@ $(function(){
     if(thisuser == myUID){                  //判断是否为自己uid (是否显示关注按钮)
         $(".care").css({"display":"none"});
     }else{
-
         $(".care").mouseenter(function(){
             if($(".care").html() == "已关注"){
                 $(".care").html("取消关注");
@@ -176,27 +179,52 @@ $(function(){
 
         $.ajax({                               //判断是否关注
             type:"post",
-            url:'http://www.maxlucio.top/tuji1.0.1/isFans',
-            data:{fans_id:selfUID,concern_id:user},   //我的UID，当前页面的UID
+            url:'http://www.maxlucio.top/tuji1.0.2/isFans',
+            data:{fans_id:myUID,concern_id:thisuser},   //我的UID，当前页面的UID
             success:function(data){
-				if(data == 1){
+                console.log(data);
+                console.log(JSON.parse(data))
+
+				if(data == 1){    //返回1为已关注
 					$("#iscare").html("已关注")
-				}else{
-					$("#iscare").html("关注")
+                    $(".care").on('click',function(){      //点击取消关注
+                        $.ajax({
+                            type:'post',
+                            url:'http://www.maxlucio.top/tuji1.0.2/quxiaoguanzhu',
+                            data:{fans_id:myUID,concern_id:thisuser},
+                            success:function(data){
+                                console.log(data)
+                            }
+                        })
+                    })
+
+				}else{      //返回0为未关注
+					$("#iscare").html("关注");
+                    $(".care").on('click',function(){      //点击关注
+                        $.ajax({
+                            type:'post',
+                            url:'http://www.maxlucio.top/tuji1.0.2/guanzhu',
+                            data:{fans_id:myUID,concern_id:thisuser},
+                            success:function(data){
+                                console.log(data)
+                            }
+                        })
+                    })
 				}
             }
         })
-
     }
 
     $.ajax({                                // 关注ajax
         type:"post",
-        url:"http://www.maxlucio.top/tuji1.0.1/selectconcern",
-        data:{fans_id:user},
-        success:function(){
-			for(var i=0; i<3; i++){
-				var concerncon = `<a class="part" href="Individual.html?${data.ID}">
-                            		<img src=${data.headportrait}/>
+        url:"http://www.maxlucio.top/tuji1.0.2/selectconcern",
+        data:{fans_id:thisuser},
+        success:function(data){
+            console.log(data);
+            console.log(JSON.parse(data));
+			for(let i=0; i<3; i++){
+				var concerncon = `<a class="part" href="Individual.html?username=${data[i].ID}">
+                            		<img src=${data[i].headportrait}/>
                         		</a>`
 				$('#concern').append(concerncon);
 			}
@@ -205,12 +233,14 @@ $(function(){
 
     $.ajax({                                // 粉丝ajax
         type:"post",
-        url:"http://www.maxlucio.top/tuji1.0.1/selectFans",
-        data:{concern_id:user},
+        url:"http://www.maxlucio.top/tuji1.0.2/selectFans",
+        data:{concern_id:thisuser},
         success:function(data){
-			for(var i=0; i<3; i++){
-				var fanscon = `<a class="part" href="Individual.html?${data.ID}">
-                            		<img src=${data.headportrait}/>
+            console.log(data);
+            console.log(JSON.parse(data));
+			for(let i=0; i<3; i++){
+				var fanscon = `<a class="part" href="Individual.html?username=${data[i].ID}">
+                            		<img src=${data[i].headportrait}/>
                         		</a>`
 				$('#fans').append(fanscon);
 			}
