@@ -12,9 +12,6 @@ $(function(){
 
     $("#thiscons").attr('href','follow.html?username='+thisuser);
     $("#thisfans").attr('href','followed.html?username='+thisuser);
-
-
-//var user = "111"
     
     
     /*--标签栏--*/
@@ -114,7 +111,7 @@ $(function(){
 
     //状态&帖子部分
 		/*-------------------------状态待修改----------------------------*/
-    $("#state").on("click",function(){
+    /*$("#state").on("click",function(){
         console.log("state");
         $(".content").html("");
         $.ajax({
@@ -152,21 +149,21 @@ $(function(){
 
             }
         })
-    })
+    })*/
 
     $("#post").on("click",function(){
         console.log("tip");
         $(".content").html("");
         $.ajax({
             type:"post",
-            url:"http://www.maxlucio.top/tuji1.0.2/getotherposts",   //帖子地址                  //获取帖子信息地址
+            url:"http://www.maxlucio.top/tuji1.0.2/getotherposts",   //获取帖子信息地址
             data:{UID:thisuser}, 
             success:function(data){
             	console.log(data);
             	console.log(JSON.parse(data));
             	for(var i=0;i<data.length;i++){
             		var posts = `<div class="post">
-                            <a href="share-show.html?post=${data[i].}">
+                            <a href="share-show.html?post=${data[i].post_id}">
                                 <!--<img src="#"/>-->
                                 <span></span>
                                 <div>${data[i].content}</div>
@@ -179,7 +176,7 @@ $(function(){
                                 <a href="#">
                                     <p>${data[i].title}</p>
                                 </a>
-                                <p>2017-10-08</p>
+                                <p>${data[i].date}</p>
                                 <span>${data[i].like}</span>
                             </div>
                         </div>`;
