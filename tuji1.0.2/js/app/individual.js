@@ -113,15 +113,42 @@ $(function(){
 
 
     //状态&帖子部分
-
+		/*-------------------------状态待修改----------------------------*/
     $("#state").on("click",function(){
         console.log("state");
         $(".content").html("");
         $.ajax({
-            type:"get",
+            type:"post",
             url:"",                //获取状态信息地址
-            data:{UID:""},
-            success:function(){
+            data:{UID:thisuser},
+            success:function(data){
+            	console.log(data);
+            	console.log(JSON.parse(data));
+            	for(var i=0;i<data.length;i++){
+            		var states=`<div class="state">
+                            <a href="Individual.html?username=${data[i].UID}">
+                                <img src="${data[i].headportrait}" />
+                            </a>
+                            <div>
+                                <p class="userId">
+                                    <span>${data[i].username}</span>
+                                    发布了一个<i>状态</i>
+                                </p>
+                                <div>
+
+                                    <p>
+                                        <i></i>
+                                        <span>${data[i].content}</span>
+                                        <i></i>
+                                    </p>
+
+                                    <img src="../img/share.jpg"/>
+                                    <a href="javascript:;" class="zan">${data[i].like}</a>
+                                </div>
+                            </div>
+                        </div>`;
+                    $(".content").append(states);
+            	}
 
             }
         })
@@ -132,9 +159,32 @@ $(function(){
         $(".content").html("");
         $.ajax({
             type:"post",
-            url:"http://www.maxlucio.top/tuji1.0.2/getotherposts",                      //获取帖子信息地址
-            data:{UID:''},
-            success:function(){
+            url:"http://www.maxlucio.top/tuji1.0.2/getotherposts",   //帖子地址                  //获取帖子信息地址
+            data:{UID:thisuser}, 
+            success:function(data){
+            	console.log(data);
+            	console.log(JSON.parse(data));
+            	for(var i=0;i<data.length;i++){
+            		var posts = `<div class="post">
+                            <a href="share-show.html?post=${data[i].}">
+                                <!--<img src="#"/>-->
+                                <span></span>
+                                <div>${data[i].content}</div>
+                                <span></span>
+                            </a>
+                            <div>
+                                <a href="Individual.html?username=${data[i].UID}">
+                                    <img src="${data[i].headportrait}"/>
+                                </a>
+                                <a href="#">
+                                    <p>${data[i].title}</p>
+                                </a>
+                                <p>2017-10-08</p>
+                                <span>${data[i].like}</span>
+                            </div>
+                        </div>`;
+                    $(".content").append(posts);
+            	}
 
             }
         })
