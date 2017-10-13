@@ -209,7 +209,6 @@ $(function(){
         }
     })
 
-
     //关注&粉丝
 
     if(thisuser == myUID){                  //判断是否为自己uid (是否显示关注按钮)

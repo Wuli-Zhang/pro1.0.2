@@ -12,7 +12,9 @@ $(function(){
             type:'post',
             url:'',
             data:{},
-            success:function(){
+            success:function(data){
+            	console.log(data);
+            	console.log(JSON.parse(data));
 
             }
         })
