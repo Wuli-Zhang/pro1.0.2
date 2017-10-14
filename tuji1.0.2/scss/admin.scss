@@ -2,16 +2,18 @@
 * @Author: zhang
 * @Date:   2017-10-05 10:29:18
 * @Last Modified by:   zhang
-* @Last Modified time: 2017-10-06 16:06:30
+* @Last Modified time: 2017-10-14 10:05:57
 */
 body{
-	background: #f5f5f5;
+	background: #e5e5e5;
 }
 .admingoback{
 	font-size:30px;
 	padding:20px 0;
 }
-
+.progress{
+	display: none;
+}
 .form-group {
 	overflow: hidden;
 	label{
