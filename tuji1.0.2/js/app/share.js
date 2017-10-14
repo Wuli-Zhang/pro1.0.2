@@ -104,7 +104,7 @@ $(function() {
                     var $div1_1 = $("<div class='show-title'>")
                     var $p1 = $("<p class='title'>");
                     var $p1_a = $("<a href='javascript:;'>");
-                    $p1_a.html(item.title).attr('data-id', item.post_id);;
+                    $p1_a.html(item.title).attr('data-id', item.post_id);
                     $p1.append($p1_a);
                     var $p2 = $("<p class='time'>");
                     $p2.html(item.date);
@@ -205,6 +205,7 @@ $(function() {
 
     // 点击文章--本地保存arcID
     $(".article-show").on("click","a",function(){
+
         var data = $(this).attr("data-id")
         localStorage.setItem("arcID",data);
     	// 以某个属性进行查找或者本地存储查找

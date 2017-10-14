@@ -2,11 +2,11 @@
 * @Author: zhang
 * @Date:   2017-10-04 10:02:57
 * @Last Modified by:   zhang
-* @Last Modified time: 2017-10-05 14:33:03
+* @Last Modified time: 2017-10-14 18:06:29
 */
 
 body {
-    background: #e5e5e5;
+    background: #f6f6f6;
 }
 
 .back {
@@ -28,7 +28,6 @@ body {
             min-height: 700px;
             background: #fff;
             padding: 40px;
-            box-shadow: 0 0 1px 1px #ccc;
             .article-top{
             	overflow: hidden;
             	margin-bottom:10px;
@@ -38,13 +37,16 @@ body {
             		height:60px;
             		border-radius:50%;
             		margin: 0 15px;
+                    margin-left:0;
             	}
             	.title{
             		float:left;
             		h1{
         			    font-size: 22px;
 					    color: #434343;
+                        font-weight:100;
 					    padding-bottom: 5px;
+                        padding-left:8px;
             		}
             		span{
 						i{
@@ -65,8 +67,15 @@ body {
             	}
             }
             .article{
-            	margin-bottom:80px;
-            	line-height:45px;
+                
+                    margin-bottom:80px;
+                    line-height:24px;
+                    font-size:12px;
+                    color:#333;
+            	img{
+                    width:100%;
+                    vertical-align: bottom;
+                }
             }
 
             .pinglun{
@@ -84,6 +93,7 @@ body {
                     padding:10px;
                     font-size:18px;
                     border-color:#fff;
+                    resize:none;
             	}
                 button{
                     margin-left:520px;
@@ -162,7 +172,6 @@ body {
                 margin-bottom: 30px;
                 background: #fff;
                 padding:15px 25px;
-                box-shadow: 0 0 1px 1px #ccc;
                 button {
                     width: 100%;
                     height: 40px;
@@ -233,7 +242,6 @@ body {
             	box-sizing:border-box;
                 background: #fff;
                 padding:25px;
-                box-shadow: 0 0 1px 1px #ccc;
                 img {
                     vertical-align: bottom;
 	                width:330px;

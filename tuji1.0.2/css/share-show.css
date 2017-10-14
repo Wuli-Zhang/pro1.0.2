@@ -2,10 +2,10 @@
 * @Author: zhang
 * @Date:   2017-10-04 10:02:57
 * @Last Modified by:   zhang
-* @Last Modified time: 2017-10-05 14:33:03
+* @Last Modified time: 2017-10-14 18:06:29
 */
 body {
-  background: #e5e5e5;
+  background: #f6f6f6;
 }
 
 .back {
@@ -29,7 +29,6 @@ body {
   min-height: 700px;
   background: #fff;
   padding: 40px;
-  box-shadow: 0 0 1px 1px #ccc;
 }
 .main-big .main .main-left .article-top {
   overflow: hidden;
@@ -41,6 +40,7 @@ body {
   height: 60px;
   border-radius: 50%;
   margin: 0 15px;
+  margin-left: 0;
 }
 .main-big .main .main-left .article-top .title {
   float: left;
@@ -48,7 +48,9 @@ body {
 .main-big .main .main-left .article-top .title h1 {
   font-size: 22px;
   color: #434343;
+  font-weight: 100;
   padding-bottom: 5px;
+  padding-left: 8px;
 }
 .main-big .main .main-left .article-top .title span i {
   float: left;
@@ -66,7 +68,13 @@ body {
 }
 .main-big .main .main-left .article {
   margin-bottom: 80px;
-  line-height: 45px;
+  line-height: 24px;
+  font-size: 12px;
+  color: #333;
+}
+.main-big .main .main-left .article img {
+  width: 100%;
+  vertical-align: bottom;
 }
 .main-big .main .main-left .pinglun h3 {
   font-size: 20px;
@@ -82,6 +90,7 @@ body {
   padding: 10px;
   font-size: 18px;
   border-color: #fff;
+  resize: none;
 }
 .main-big .main .main-left .pinglun button {
   margin-left: 520px;
@@ -156,7 +165,6 @@ body {
   margin-bottom: 30px;
   background: #fff;
   padding: 15px 25px;
-  box-shadow: 0 0 1px 1px #ccc;
 }
 .main-big .main .main-right .fatie button {
   width: 100%;
@@ -221,7 +229,6 @@ body {
   box-sizing: border-box;
   background: #fff;
   padding: 25px;
-  box-shadow: 0 0 1px 1px #ccc;
 }
 .main-big .main .main-right .geren img {
   vertical-align: bottom;

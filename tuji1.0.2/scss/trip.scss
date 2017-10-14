@@ -2,9 +2,12 @@
 * @Author: zhang
 * @Date:   2017-09-25 20:04:25
 * @Last Modified by:   zhang
-* @Last Modified time: 2017-10-07 09:25:16
+* @Last Modified time: 2017-10-14 17:37:59
 */
 @charset "utf-8";
+body{
+	background:#f6f6f6;
+}
 section{
 	width:100%;
 	height:570px;
@@ -17,13 +20,13 @@ section{
 		margin:0 auto;
 		overflow: hidden;
 		background: url(../img/trip-bg.png) no-repeat;
-		background-position:center;
+		background-size:100% 100%;
 		position:relative;
 		.search{
 			position: absolute;
 			left:50%;
 			top:250px;
-			margin-left:-125px;
+			margin-left:-175px;
 			width:350px;
 			height:30px;
 			overflow: hidden;
@@ -52,13 +55,13 @@ section{
 			}
 		}
 		.btn-go3D{
-		    width: auto;
+		    width: 180px;
 		    height: 30px;
 		    padding:0 20px ;
 		    background: #fff;
 		    position: absolute;
 		    left: 50%;
-		    margin-left:-40px;
+		    margin-left:-90px;
 		    top: 330px;
 		    border: none;
 		    border-radius:10px ;
