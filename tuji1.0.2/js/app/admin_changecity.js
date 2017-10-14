@@ -2,7 +2,7 @@
 * @Author: zhang
 * @Date:   2017-10-05 19:52:23
 * @Last Modified by:   zhang
-* @Last Modified time: 2017-10-14 12:20:04
+* @Last Modified time: 2017-10-14 12:30:46
 */
 $(function(){
 	// --将内容加载页面----
@@ -50,7 +50,7 @@ $(function(){
 			error:function(data) {
 				/* Act on the event */
 				console.log(data)
-			};
+			}
 
 		})
 	});
